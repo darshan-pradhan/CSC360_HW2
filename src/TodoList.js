@@ -14,7 +14,7 @@ export default function TodoList({ todos = [], dispatch}) {
 
     const deleteTodo = (id) => {
       const updatedTodos = todos.filter((todo) => todo.id !== id)
-      dispatch( {type: 'DELETE_POST', updatedTodos})
+      dispatch( {type: 'DELETE_TODO', updatedTodos})
     }
 
     return (

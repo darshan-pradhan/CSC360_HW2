@@ -22,7 +22,7 @@ export default function Todo({
   const [checked, updateChecked] = useState(false)
   const handleToggleEvent = (event) => {
     updateChecked(event.target.checked)
-    const updatedTodo = {title, description, dateCreated, complete:!complete, dateCompleted: Date.now(), id, updateTodo, deleteTodo}
+    const updatedTodo = {title, description, dateCreated, complete:!complete, dateCompleted: Date.now(), id}
     updateTodo(id,updatedTodo)
   }
   return (
@@ -37,6 +37,7 @@ export default function Todo({
       Date Completed: {complete ? new Date(dateCompleted).toDateString() : 'Not yet completed'}
       <br />
       <input type="checkbox" value={checked} onChange={handleToggleEvent}/>
+      <input type="button" value="Delete this todo" onClick={() => deleteTodo(id)} />
     </div>
   );
 }
