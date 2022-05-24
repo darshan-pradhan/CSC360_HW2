@@ -1,14 +1,15 @@
 import React, {useState} from "react";
 
-export default function CreateTodo({ user, setTodos, Todo }) {
+export default function CreateTodo({ user, Todo, dispatch }) {
   const [ title, setTitle ] = useState("")
   const [ description, setDescription ] = useState("")
 
   function handleTitle (evt) { setTitle(evt.target.value) }
   function handleDescription (evt) { setDescription(evt.target.value) }
   function handleCreate (evt) {  
-    const newTodo = { title, description, author: user, dateCreated: Date.now(), complete: false, dateCompleted:null }
-     setTodos([newTodo, ...Todo])
+    //const newTodo = { title, description, author: user, dateCreated: Date.now(), complete: false, dateCompleted:null }
+    //setTodos([newTodo, ...Todo])
+    dispatch({type: 'CREATE_TODO', title, description, author:user, dateCreated: Date.now(), complete: false, dateCompleted:undefined, id: Math.floor(Math.random()*1000000)})
   }
 
   return (
